@@ -3,27 +3,27 @@
 #include <random>
 #include <chrono>
 
-const Node::Grid Node::goalState = {
+const Node::Grid Node::_goalState = {
         {1, 2, 3},
         {4, 5, 6},
         {7, 8, 0}
 };
 
-Node::Node(const std::vector<std::vector<int>>& state) : mState(state) {}
+Node::Node(const std::vector<std::vector<int>>& _state) : _state(_state) {}
 
 const std::vector<std::vector<int>>& Node::getState() const {
-    return mState;
+    return _state;
 }
 
 bool Node::isEndState() const {
-    return mState == goalState;
+    return _state == _goalState;
 }
 
 Coordinate Node::getZero() const {
     Coordinate pos{};
-    for (size_t i = 0; i < mState.size(); ++i) {
-        for (size_t j = 0; j < mState[i].size(); ++j) {
-            if (mState[i][j] == 0) {
+    for (size_t i = 0; i < _state.size(); ++i) {
+        for (size_t j = 0; j < _state[i].size(); ++j) {
+            if (_state[i][j] == 0) {
                 pos.x = i;
                 pos.y = j;
             }
@@ -33,7 +33,7 @@ Coordinate Node::getZero() const {
 }
 
 Node Node::switchNode(const int& x1, const int& y1, const int& x2, const int& y2) const {
-    Grid newState = mState;
+    Grid newState = _state;
     int temp = newState[x1][y1];
     newState[x1][y1] = newState[x2][y2];
     newState[x2][y2] = temp;
