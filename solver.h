@@ -14,7 +14,7 @@ public:
     static void printSteps(const std::vector<Node>& solution);
 
 private:
-    Node initialState;
+    Node _initialState;
 
 };
 
