@@ -1,7 +1,7 @@
 #include "solver.h"
 #include <iostream>
 
-Solver::Solver(Node  initialState) : initialState(std::move(initialState)) {}
+Solver::Solver(Node  initialState) : _initialState(std::move(initialState)) {}
 
 std::vector<Node> Solver::solvePuzzle() {
     typedef std::vector<Node> Path;
@@ -10,7 +10,7 @@ std::vector<Node> Solver::solvePuzzle() {
     std::queue<Path> q;
     std::map<Node::Grid, bool> visited;
     Path initialPath;
-    initialPath.push_back(initialState);
+    initialPath.push_back(_initialState);
     q.push(initialPath);
 
     while (!q.empty()) {
