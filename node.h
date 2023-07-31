@@ -12,7 +12,7 @@ class Node {
 public:
     typedef std::vector<std::vector<int>> Grid;
 
-    explicit Node(const Grid& state);
+    explicit Node(const Grid& _state);
 
     const Grid& getState() const;
 
@@ -27,8 +27,8 @@ public:
     static Node generateRandomInitialState();
 
 private:
-    static const Grid goalState;
-    Grid mState;
+    static const Grid _goalState;
+    Grid _state;
 };
 
 #endif // NODE_H
