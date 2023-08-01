@@ -8,6 +8,8 @@
 
 class Solver {
 public:
+    typedef std::vector<Node> Path;
+
     explicit Solver(Node  initialState);
 
     std::vector<Node> solvePuzzle();
