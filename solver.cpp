@@ -4,8 +4,6 @@
 Solver::Solver(Node  initialState) : _initialState(std::move(initialState)) {}
 
 std::vector<Node> Solver::solvePuzzle() {
-    typedef std::vector<Node> Path;
-
     Path solution;
     std::queue<Path> q;
     std::map<Node::Grid, bool> visited;
